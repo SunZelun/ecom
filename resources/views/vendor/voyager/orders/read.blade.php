@@ -44,6 +44,16 @@
                             </ul>
                         </div>
 
+                    <div class="panel-heading" style="border-bottom:0;">
+                        <h3 class="panel-title">Customer Information</h3>
+                    </div>
+
+                    <div class="panel-body" style="padding-top:0;">
+                        <div>User Id: {{ $customer->id }}</div>
+                        <div>User Name: {{ $customer->name }}</div>
+                        <div>User Email: {{ $customer->email }}</div>
+                    </div>
+
                     <!-- form start -->
                     @foreach($dataType->readRows as $row)
                         @php $rowDetails = json_decode($row->details);

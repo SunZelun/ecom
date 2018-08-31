@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Voyager;
 
 use App\Order;
+use App\User;
+use Illuminate\Support\Facades\DB;
+use TCG\Voyager\Database\Schema\SchemaManager;
 use Validator;
 use App\Product;
 use App\Category;
@@ -65,7 +68,8 @@ class OrdersController extends VoyagerBaseController
 
         $order = Order::find($id);
         $products = $order->products;
+        $customer = $order->user;
 
-        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'products'));
+        return Voyager::view($view, compact('dataType', 'dataTypeContent', 'isModelTranslatable', 'products', 'customer'));
     }
 }
